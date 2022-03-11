@@ -26,7 +26,7 @@ contract enetscoreInterfaces {
         return IEnetscore(enetscore_address).gameDetailsAsString();
     }
 
-    function callGameScoreAsString() external view returns (string memory) {
+    function GameScoreAsString() external view returns (string memory) {
         return IEnetscore(enetscore_address).gameScoreAsString();
     }
 
