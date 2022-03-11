@@ -1,4 +1,3 @@
-
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.9;
 
@@ -16,12 +15,12 @@ pragma solidity 0.8.9;
 
  Ligue 1: 874017
  date: 2022-03-06
+ gamesID: [3626086,3626088,3626090,3626091,3626093,3626094,3626095]
  */
-
-
+ 
 import "@chainlink/contracts/src/v0.8/ChainlinkClient.sol";
 
-contract EnetpulseConsumerLR is ChainlinkClient {
+contract enetpulseConsumerLRModified is ChainlinkClient {
     using Chainlink for Chainlink.Request;
 
     /* ========== CONSUMER STATE VARIABLES ========== */
@@ -141,3 +140,4 @@ contract EnetpulseConsumerLR is ChainlinkClient {
         require(linkToken.transfer(msg.sender, linkToken.balanceOf(address(this))), "Unable to transfer");
     }
 }
+
