@@ -15,7 +15,7 @@ contract enetscoreInterfaces {
     address public enetscore_address;
 
     constructor () {
-      enetscore_address = 0x3C36cD60da07C7792C00D20a28274A451e47cb32;
+      enetscore_address = 0x6402B63BC71B8833a8345e410B415DA4C7647Fe7;
     }
 
     function scheduleAsString() external view returns (string memory) {
