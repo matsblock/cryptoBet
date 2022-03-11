@@ -10,16 +10,6 @@ interface IEnetscore {
     function requestGameScore(uint256) external;
 }
 
-
-contract Callee {
-    uint public x;
-
-    function setX(uint _x) public returns (uint) {
-        x = _x;
-        return x;
-    }
-}
-
 contract enetscoreInterfaces {
 
     address public enetscore_address;
