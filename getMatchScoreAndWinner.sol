@@ -5,6 +5,7 @@ import 'https://github.com/matsblock/cryptoBet/blob/53558b1d7f671e63a502a143fdb6
 
 interface IgetMatchScoreAndWinner {
     function getMatchScoreAndWinner() external returns (bytes32);
+    function getGameScoreAsString() external;
 }
 
 contract  getMatchScoreAndWinner{
