@@ -4,9 +4,8 @@ import 'https://github.com/matsblock/cryptoBet/blob/53558b1d7f671e63a502a143fdb6
 
 
 interface IgetMatchScoreAndWinner {
-    function getMatchScoreAndWinner() external returns (int);
+    function getMatchScoreAndWinner() external returns (bytes32);
 }
-
 
 contract  getMatchScoreAndWinner{
 
@@ -59,15 +58,13 @@ contract  getMatchScoreAndWinner{
 
     string public status;
     uint public home;
-    uint public away;
-   
+    uint public away;   
 
     constructor ()  {}
 
     //Funciones propias
 
-    function getWinner() public returns (int) {
-        int winner;
+    function getWinner() public returns (bytes32) {
         phraseToConvert = gameScoreString;
         s = toSlice(phraseToConvert);
         sliceSeparator1 = toSlice(stringSeparator1);
@@ -83,19 +80,21 @@ contract  getMatchScoreAndWinner{
         (slicePart4, ) = split(sliceScrap2,sliceSeparator2); 
         stringPart4 = toString(slicePart4);
 
+
         status = stringPart1;
         home = st2num(stringPart2);
         away = st2num(stringPart4);
 
+        bytes32 winner;
+
         if (home > away) { 
-            winner = 0 ;
+            winner = "home";
         }
         if (away > home) { 
-            winner = 1;
+            winner = "away";
         } else {
-            winner = 3;
+            winner = "tied";
         }
-
         return winner;
     }
 
