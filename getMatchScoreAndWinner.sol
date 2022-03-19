@@ -61,6 +61,8 @@ contract  getMatchScoreAndWinner{
     uint public home;
     uint public away;   
 
+    bytes32 public winner;
+
     constructor ()  {}
 
     //Funciones propias
@@ -86,17 +88,23 @@ contract  getMatchScoreAndWinner{
         home = st2num(stringPart2);
         away = st2num(stringPart4);
 
-        bytes32 winner;
+        bytes32 _winner;
 
         if (home > away) { 
             winner = "home";
         }
-        if (away > home) { 
+        else if (away > home) { 
             winner = "away";
-        } else {
+        }  
+        else if  (away == home) {
             winner = "tied";
         }
-        return winner;
+        else {
+            winner = "error";
+        }
+
+        _winner = winner;
+        return _winner;
     }
 
   function st2num(string memory numString) public pure returns(uint) {
@@ -813,3 +821,4 @@ contract  getMatchScoreAndWinner{
         return ret;
     }
 }
+
