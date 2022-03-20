@@ -1,17 +1,18 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.0;
-import 'https://github.com/matsblock/cryptoBet/blob/53558b1d7f671e63a502a143fdb606ce72b6d6b6/enetscoreInterfaces.sol';
+pragma solidity ^0.8.10;
+import 'https://github.com/matsblock/cryptoBet/blob/93fc2677d063d05042cc80133fea5528eeac011f/enetscoreInterfaces.sol';
 
+enum winnerResultEnum {Home,Away,Tied}
 
 interface IgetMatchScoreAndWinner {
-    function getWinner() external view returns (uint8);
+    function getWinner() external view returns (winnerResultEnum);
     function getGameScoreAsString() external;
     function status() external view returns (string memory);
 }
 
 contract  getMatchScoreAndWinner{
 
-    address enetScoreInterfacesAddress = 0xc94933f88b6d3b616Abc281935CcEB4DFb517367;
+    address enetScoreInterfacesAddress = 0x494b2216804965f8F5fF5033fb50C4cbA97935b2;
     enetscoreInterfaces enetscoreInterfacesContract  = enetscoreInterfaces(enetScoreInterfacesAddress);
 
     string public gameDetailsString;
@@ -62,7 +63,6 @@ contract  getMatchScoreAndWinner{
     uint public home;
     uint public away;   
 
-    enum winnerResultEnum {Home,Away,Tied}
     winnerResultEnum public winnerResult;
 
     constructor ()  {
