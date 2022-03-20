@@ -4,7 +4,7 @@ import 'https://github.com/matsblock/cryptoBet/blob/53558b1d7f671e63a502a143fdb6
 
 
 interface IgetMatchScoreAndWinner {
-    function getWinner() external returns (int);
+    function getWinner() external returns (uint8);
     function getGameScoreAsString() external;
     function status() external view returns (string memory);
 }
