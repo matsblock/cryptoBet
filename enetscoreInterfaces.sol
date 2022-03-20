@@ -1,5 +1,5 @@
 // SPDX-License-Identifier: MIT
-pragma solidity 0.8.9;
+pragma solidity ^0.8.10;
 
 interface IEnetscore {
     function scheduleAsString() external view returns (string memory);
