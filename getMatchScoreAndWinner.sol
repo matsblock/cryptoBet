@@ -1,11 +1,12 @@
-// SPDX-License-Identifier: MIT
+/ SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 import 'https://github.com/matsblock/cryptoBet/blob/53558b1d7f671e63a502a143fdb606ce72b6d6b6/enetscoreInterfaces.sol';
 
 
 interface IgetMatchScoreAndWinner {
-    function getMatchScoreAndWinner() external returns (bytes32);
+    function getMatchScoreAndWinner() external returns (int);
     function getGameScoreAsString() external;
+    function status() external view returns (string memory);
 }
 
 contract  getMatchScoreAndWinner{
@@ -61,13 +62,15 @@ contract  getMatchScoreAndWinner{
     uint public home;
     uint public away;   
 
-    bytes32 public winner;
+    enum winnerResultEnum {Home,Away,Tied}
+    winnerResultEnum public winnerResult;
 
-    constructor ()  {}
+    constructor ()  {
+    }
 
     //Funciones propias
 
-    function getWinner() public returns (bytes32) {
+    function getWinner() public returns (winnerResultEnum) {
         phraseToConvert = gameScoreString;
         s = toSlice(phraseToConvert);
         sliceSeparator1 = toSlice(stringSeparator1);
@@ -83,28 +86,20 @@ contract  getMatchScoreAndWinner{
         (slicePart4, ) = split(sliceScrap2,sliceSeparator2); 
         stringPart4 = toString(slicePart4);
 
-
         status = stringPart1;
         home = st2num(stringPart2);
         away = st2num(stringPart4);
 
-        bytes32 _winner;
-
         if (home > away) { 
-            winner = "home";
+        winnerResult = winnerResultEnum.Home;
         }
         else if (away > home) { 
-            winner = "away";
+        winnerResult = winnerResultEnum.Away;
         }  
         else if  (away == home) {
-            winner = "tied";
+        winnerResult = winnerResultEnum.Tied;
         }
-        else {
-            winner = "error";
-        }
-
-        _winner = winner;
-        return _winner;
+        return winnerResult;
     }
 
   function st2num(string memory numString) public pure returns(uint) {
