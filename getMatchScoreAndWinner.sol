@@ -1,4 +1,4 @@
-/ SPDX-License-Identifier: MIT
+// SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 import 'https://github.com/matsblock/cryptoBet/blob/53558b1d7f671e63a502a143fdb606ce72b6d6b6/enetscoreInterfaces.sol';
 
