@@ -126,8 +126,6 @@ contract  getMatchScoreAndWinner{
 
     //--------------------------------
 
-    
-
     function memcpy(uint dest, uint src, uint len) private pure {
         // Copy word-length chunks while possible
         for(; len >= 32; len -= 32) {
@@ -816,3 +814,4 @@ contract  getMatchScoreAndWinner{
         return ret;
     }
 }
+
